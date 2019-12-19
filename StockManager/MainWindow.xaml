@@ -1,0 +1,131 @@
+﻿<Window x:Class="StockManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockManager"
+        mc:Ignorable="d"
+        Title="StockManager" Height="450" Width="800" Visibility="Visible">
+    
+    <Grid Margin="0,0,2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <!--Barre de recherche-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <TextBox  Text="{Binding SearchText,UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="0" Margin="2 5"/>
+            <Button  Background="Teal" Foreground="White" Command="{Binding CommandRechercherProduit}" Width="55" Height="20" Grid.Row="0" Grid.Column="1" Content="Chercher" HorizontalAlignment="Right"/>
+        </Grid>
+        
+        <!--La liste des produits-->
+        <ListBox ItemsSource="{Binding Produits,Mode=OneWay}" SelectedItem="{Binding CurrentProduit}" Grid.Row="2" Grid.Column="1" Margin="2 5">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>                        
+                        <Run Text="{Binding Nom}"/>
+                        <Run>(</Run>
+                        <Run Text="{Binding Id}"/>
+                        <Run>)</Run>
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <!--Titre de la page-->
+        <Grid Grid.Column="2" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Button FontSize="14" Background="Teal" Foreground="White" Command="{Binding CommandAjouterProduit}" Content="Ajouter" Width="70" Height="20" HorizontalAlignment="Left" Margin="8 0 0 0"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="STOCK MANAGER" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+        </Grid>
+       
+        <!--Detail du produit selectionner-->
+        <StackPanel Grid.Column="2" Grid.Row="2" Margin="2 5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
+                    <Run>Nom:</Run>
+                    <Run Text="{Binding CurrentProduit.Nom}"/>
+                </TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="2" >
+                    <Run>Id: </Run>
+                    <Run Text="{Binding CurrentProduit.Id}"/>
+                </TextBlock>
+                <TextBlock Grid.Column="2" Grid.Row="2" >
+                    <Run>Code Barre :</Run>
+                    <Run Text="{Binding CurrentProduit.CodeBarre}"/>
+                </TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="3" >
+                    <Run>Prix:</Run>
+                    <Run Text="{Binding CurrentProduit.Prix}"/>
+                    <Run>Euro</Run>
+                </TextBlock>
+                <!--Affichage de la ligne stock-->
+                <Grid Grid.Column="2" Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="30"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0">Stock:</Label>
+                    <Button Background="Teal" Foreground="White" Command="{Binding CommandMoinsUn}" CommandParameter="{Binding CurrentProduit}" Grid.Column="1" Grid.Row="0">-</Button>
+                    <Label HorizontalAlignment="Center" Grid.Column="2" Grid.Row="0">
+                        <Run Text="{Binding CurrentProduit.Stock}"/>
+                    </Label>
+                    <Button Background="Teal" Foreground="White"  Command="{Binding CommandPlusUn}" CommandParameter="{Binding CurrentProduit}" Grid.Column="3" Grid.Row="0">+</Button>
+                </Grid>
+                <TextBlock   Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" TextWrapping="Wrap">
+                    <Run>Description: </Run>
+                    <Run Text="{Binding CurrentProduit.Description}"/>
+                </TextBlock>
+                <Button FontSize="17" Background="Teal" Foreground="White" Command="{Binding CommandModifierProduit}" CommandParameter="{Binding CurrentProduit}" Grid.Column="1" Grid.Row="6" Width="70"    >Modifier</Button>
+                <Button FontSize="17" Background="red" Foreground="White" Command="{Binding CommandSupprimerProduit}" CommandParameter="{Binding CurrentProduit}" Grid.Column="2" Grid.Row="6" Width="90" >Supprimer</Button>
+            </Grid>
+        </StackPanel>
+
+        <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" >
+            <TextBlock>
+                <Run>Statut : </Run>
+                <Run>Chargement</Run>
+            </TextBlock>
+        </StatusBar>
+    </Grid>
+</Window>

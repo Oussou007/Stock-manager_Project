@@ -1,0 +1,16 @@
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\bin\Debug\StockManager.exe.config
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\bin\Debug\StockManager.exe
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\bin\Debug\StockManager.pdb
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\obj\Debug\StockManager.csprojAssemblyReference.cache
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\obj\Debug\MainWindow.g.cs
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\obj\Debug\ProduitForm.g.cs
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\obj\Debug\App.g.cs
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\obj\Debug\StockManager_MarkupCompile.cache
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\obj\Debug\StockManager_MarkupCompile.lref
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\obj\Debug\MainWindow.baml
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\obj\Debug\ProduitForm.baml
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\obj\Debug\StockManager.g.resources
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\obj\Debug\StockManager.Properties.Resources.resources
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\obj\Debug\StockManager.csproj.GenerateResource.cache
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\obj\Debug\StockManager.exe
+C:\Users\Bachelin\Documents\estiam\E3 B\application d'entreprise\eva\StockManager\StockManager\obj\Debug\StockManager.pdb
