@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using StockManager.Models;
 namespace StockManager.ViewModels
@@ -233,18 +235,7 @@ namespace StockManager.ViewModels
         private bool saved = false;
         public void Closing(object sender, CancelEventArgs e)
         {
-            if (saved)
-            {
-                Produits.Add(NouveauProduit);
-                List<Produit> lp = new List<Produit>();
-                lp.AddRange(produits);
-                Produits = lp;
-                if (searchText.Length > 0) listProduit.Add(NouveauProduit);
-                OnPropertyChanged("Produits");
-                NouveauProduit = null;
-                saved = false;
-                return;
-            }
+            
         }
 
         #endregion
@@ -266,7 +257,30 @@ namespace StockManager.ViewModels
         public void ActionEnregistrerProduit(Produit param)
         {
             if(action==Action.Ajouter)saved = true;
-            pf.Close();
+            if (saved)
+            {
+                string codeBarrePattern = "[0-9]{13}";
+                Regex matcher = new Regex(codeBarrePattern);
+                if (matcher.IsMatch(NouveauProduit.CodeBarre)&&NouveauProduit.CodeBarre.Length!=0)
+                {
+                    Produits.Add(NouveauProduit);
+                    List<Produit> lp = new List<Produit>();
+                    lp.AddRange(produits);
+                    Produits = lp;
+                    if (searchText.Length > 0) listProduit.Add(NouveauProduit);
+                    OnPropertyChanged("Produits");
+                    NouveauProduit = null;
+                    saved = false;
+                    pf.Close();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Veillez renseignez un code barre correct.\nContenant 13 chiffres.", "Erreur");
+                    return;
+                }
+            }
+            
         }
         #endregion
 

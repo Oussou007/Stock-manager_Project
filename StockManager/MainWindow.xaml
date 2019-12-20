@@ -78,21 +78,21 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
-                    <Run>Nom:</Run>
-                    <Run Text="{Binding CurrentProduit.Nom}"/>
+                    <Run FontWeight="Bold" >Nom:</Run>
+                    <Run FontSize="14" Text="{Binding CurrentProduit.Nom}"/>
                 </TextBlock>
                 <TextBlock Grid.Column="1" Grid.Row="2" >
-                    <Run>Id: </Run>
-                    <Run Text="{Binding CurrentProduit.Id}"/>
+                    <Run FontWeight="Bold">Id: </Run>
+                    <Run FontSize="14" Text="{Binding CurrentProduit.Id}"/>
                 </TextBlock>
                 <TextBlock Grid.Column="2" Grid.Row="2" >
-                    <Run>Code Barre :</Run>
-                    <Run Text="{Binding CurrentProduit.CodeBarre}"/>
+                    <Run FontWeight="Bold">Code Barre :</Run>
+                    <Run FontSize="14" Text="{Binding CurrentProduit.CodeBarre}"/>
                 </TextBlock>
                 <TextBlock Grid.Column="1" Grid.Row="3" >
-                    <Run>Prix:</Run>
-                    <Run Text="{Binding CurrentProduit.Prix}"/>
-                    <Run>Euro</Run>
+                    <Run FontWeight="Bold">Prix:</Run>
+                    <Run FontSize="14" Text="{Binding CurrentProduit.Prix}"/>
+                    <Run FontWeight="Bold">Euro</Run>
                 </TextBlock>
                 <!--Affichage de la ligne stock-->
                 <Grid Grid.Column="2" Grid.Row="3">
@@ -105,27 +105,20 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
-                    <Label Grid.Column="0" Grid.Row="0">Stock:</Label>
+                    <Label FontWeight="Bold" Grid.Column="0" Grid.Row="0">Stock:</Label>
                     <Button Background="Teal" Foreground="White" Command="{Binding CommandMoinsUn}" CommandParameter="{Binding CurrentProduit}" Grid.Column="1" Grid.Row="0">-</Button>
                     <Label HorizontalAlignment="Center" Grid.Column="2" Grid.Row="0">
-                        <Run Text="{Binding CurrentProduit.Stock}"/>
+                        <Run FontSize="14" Text="{Binding CurrentProduit.Stock}"/>
                     </Label>
                     <Button Background="Teal" Foreground="White"  Command="{Binding CommandPlusUn}" CommandParameter="{Binding CurrentProduit}" Grid.Column="3" Grid.Row="0">+</Button>
                 </Grid>
                 <TextBlock   Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" TextWrapping="Wrap">
-                    <Run>Description: </Run>
-                    <Run Text="{Binding CurrentProduit.Description}"/>
+                    <Run FontWeight="Bold">Description: </Run>
+                    <Run FontSize="14" Text="{Binding CurrentProduit.Description}"/>
                 </TextBlock>
                 <Button FontSize="17" Background="Teal" Foreground="White" Command="{Binding CommandModifierProduit}" CommandParameter="{Binding CurrentProduit}" Grid.Column="1" Grid.Row="6" Width="70"    >Modifier</Button>
                 <Button FontSize="17" Background="red" Foreground="White" Command="{Binding CommandSupprimerProduit}" CommandParameter="{Binding CurrentProduit}" Grid.Column="2" Grid.Row="6" Width="90" >Supprimer</Button>
             </Grid>
         </StackPanel>
-
-        <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" >
-            <TextBlock>
-                <Run>Statut : </Run>
-                <Run>Chargement</Run>
-            </TextBlock>
-        </StatusBar>
     </Grid>
 </Window>

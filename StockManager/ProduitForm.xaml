@@ -43,36 +43,31 @@
                 
             </Grid.RowDefinitions>
             <!--Le nom-->
-            <Label Grid.Column="1" Grid.Row="1"> Nom :</Label>
-            <TextBox Text="{Binding NouveauProduit.Nom}" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3"/>
+            <Label FontWeight="Bold" Grid.Column="1" Grid.Row="1"> Nom :</Label>
+            <TextBox Margin=" 0 5" Text="{Binding NouveauProduit.Nom}" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3"/>
             <!--Le code barre-->
-            <Label Grid.Column="1" Grid.Row="2" >
+            <Label FontWeight="Bold" Grid.Column="1" Grid.Row="2" >
                 Code Barre :
             </Label>
-            <TextBox Text="{Binding NouveauProduit.CodeBarre}" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="3"/>
+            <TextBox Margin=" 0 5" Text="{Binding NouveauProduit.CodeBarre}" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="3"/>
             <!--Le prix-->
-            <Label Grid.Column="1" Grid.Row="3" >
+            <Label FontWeight="Bold" Grid.Column="1" Grid.Row="3" >
                 Prix:                  
             </Label>
-            <TextBox Text="{Binding NouveauProduit.Prix}" Grid.Column="2" Grid.Row="3"/>
+            <TextBox Margin=" 0 5" Text="{Binding NouveauProduit.Prix}" Grid.Column="2" Grid.Row="3"/>
             <!--La quantité-->
-            <Label Grid.Column="3" Grid.Row="3" >
+            <Label FontWeight="Bold" Grid.Column="3" Grid.Row="3" >
                 Stock:
             </Label>
-            <TextBox Text="{Binding NouveauProduit.Stock}" Grid.Column="4" Grid.Row="3"/>
+            <TextBox Margin=" 0 5" Text="{Binding NouveauProduit.Stock}" Grid.Column="4" Grid.Row="3"/>
             <!--La description du produit-->
-            <Label  Grid.Column="1" Grid.Row="4">
+            <Label FontWeight="Bold" Grid.Column="1" Grid.Row="4">
                     Description: 
             </Label>
-            <TextBox Text="{Binding NouveauProduit.Description}" AcceptsReturn="True" TextWrapping="Wrap" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="3"/>
+            <TextBox Margin=" 0 5" Text="{Binding NouveauProduit.Description}" AcceptsReturn="True" TextWrapping="Wrap" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="3"/>
         </Grid>
         <!--Boutton Enregistrer-->
         <Button FontSize="17" FontWeight="Bold" Background="Teal" Foreground="White" Command="{Binding CommandEnregistrerProduit}" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="3">Enregistrer</Button>
-        <StatusBar Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" >
-            <TextBlock>
-                <Run>Statut : </Run>
-                <Run>Chargement</Run>
-            </TextBlock>
-        </StatusBar>
+        
     </Grid>
 </Window>
